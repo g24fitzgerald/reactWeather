@@ -6,10 +6,10 @@ const PORT = process.env.PORT || 3000;
 var app = express();
 //express middleware, redirect https to an http address
 app.use(function(req, res, next){
-  if (req.headers['x-forwarded-proto'] === 'http'){
-    next(); //lets req process as normal
-  } else {
+  if (req.headers['x-forwarded-proto'] === 'https'){
     res.redirect('http://' + req.hostname + req.url);//redirect https to http
+  } else {
+    next(); //lets req process as normal. lets us run localhost
   }
 });
 app.use(express.static('public'));
