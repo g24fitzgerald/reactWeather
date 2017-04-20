@@ -5,6 +5,7 @@ var WeatherForm = React.createClass({
     e.preventDefault();
 
     var location = this.refs.location.value; //accesses value in input
+
     if (location.length > 0){ //ensures there's input in field
       this.refs.location.value = ''; //clears input field
       this.props.onSearch(location);
@@ -14,8 +15,8 @@ var WeatherForm = React.createClass({
     return (
       <div>
         <form onSubmit={this.onFormSubmit}>
-          <div><input type="text" ref="location" placeholder="WeatherForm Component"/></div>
-          <div><button>Get Weather</button></div>
+          <input type="text" ref="location" placeholder="Enter City Name"/>
+          <button>Get Weather</button>
         </form>
       </div>
 
